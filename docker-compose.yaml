@@ -1,0 +1,35 @@
+services:
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: app
+    restart: unless_stopped 
+    command: ["ollama", "pull","mistral"]
+  whisper-cpu:
+    build: .
+    profiles:
+      - cpu
+    volumes:
+      - ./models:/root/.cache/whisper
+      - ./audio-files:/app
+
+  piper:
+    image: lscr.io/linuxserver/piper:latest
+    container_name: piper
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PIPER_VOICE=en_US-lessac-medium
+      - LOCAL_ONLY= #optional
+      - PIPER_LENGTH=1.0 #optional
+      - PIPER_NOISE=0.667 #optional
+      - PIPER_NOISEW=0.333 #optional
+      - PIPER_SPEAKER=0 #optional
+      - NO_STREAMING= #optional
+    volumes:
+      - /path/to/piper/data:/config
+    ports:
+      - 10200:10200
+    restart: unless-stopped
+  
