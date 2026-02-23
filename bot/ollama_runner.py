@@ -24,7 +24,7 @@ def ask_ollama(prompt: str):
 
     try:
         response = requests.post(
-            "http://192.168.1.95:11434/api/generate",
+            "http://127.0.0.1:11434/api/generate",
             json=payload,
             timeout=60,
             
