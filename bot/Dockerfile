@@ -11,7 +11,10 @@ RUN apt-get update && \
 WORKDIR /app
 COPY requirements.txt .
 
+
 RUN pip install --no-cache-dir -r requirements.txt
+
+RUN python3 -m piper.download_voices ru_RU-ruslan-medium
 
 COPY . .
 

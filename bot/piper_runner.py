@@ -2,7 +2,7 @@ import wave
 import io
 from piper import PiperVoice
 
-voice = PiperVoice.load("./voices/ru_RU-ruslan-medium.onnx")
+voice = PiperVoice.load("./ru_RU-ruslan-medium.onnx")
 
 def gen_speech_bytes(text: str) -> io.BytesIO:
     buffer = io.BytesIO()
