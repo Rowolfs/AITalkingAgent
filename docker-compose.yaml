@@ -3,6 +3,7 @@
 services:
   bot:
     build: ./bot
+    network_mode: "host"
     secrets:
       - TOKEN
     environment:
