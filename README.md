@@ -1,4 +1,4 @@
-AITalkingAgent is a Telegram bot for voice‑to‑voice chat using Whisper, Ollama and Piper TTS.
+### AITalkingAgent - is a Telegram bot for voice‑to‑voice chat using Whisper, Ollama and Piper TTS.
 # Features
 
     Send voice messages and get voice replies.
