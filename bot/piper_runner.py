@@ -1,8 +1,12 @@
 import wave
 import io
+import subprocess
+import sys
 from piper import PiperVoice
 
-voice = PiperVoice.load("./ru_RU-ruslan-medium.onnx")
+def download_voices
+subprocess.run([sys.executable, "-m", "piper.download_voices", "ru_RU-irina-medium"])
+voice = PiperVoice.load("./ru_RU-irina-medium.onnx")
 
 def gen_speech_bytes(text: str) -> io.BytesIO:
     buffer = io.BytesIO()

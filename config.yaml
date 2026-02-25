@@ -1,0 +1,21 @@
+ollama:
+  model: "mistral:7b"
+  system_prompt: ""
+  timeout: 60
+  stream: False
+piper_tts:
+  voice: "ru_RU-irina-medium"
+  num_channels: 1
+  bits_per_sample: 2
+  samplerate: 24000
+whisper:
+  model: base
+  language: "all"
+
+
+
+
+
+
+
+

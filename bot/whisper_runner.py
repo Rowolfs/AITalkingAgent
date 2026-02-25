@@ -13,6 +13,6 @@ def transcribe(path: str):
 
     options = whisper_runner.DecodingOptions()
     result = whisper_runner.decode(model, mel, options)
-    print(result.text)
+
     return result.text
     

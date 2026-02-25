@@ -1,14 +1,19 @@
-
-
 services:
   bot:
     build: ./bot
     network_mode: "host"
+    container_name: AiTalkingBot
     secrets:
       - TOKEN
     environment:
-      # путь к секрету в контейнере
       BOT_TOKEN_FILE: /run/secrets/TOKEN
+
+    devices:
+      - /dev/dri:/dev/dri      # Intel QuickSync / AMD
+      - /dev/kfd:/dev/kfd      # AMD ROCm  
+      - /dev/nvidia0:/dev/nvidia0     # NVIDIA
+      - /dev/nvidiactl:/dev/nvidiactl
+      - /dev/nvidia-uvm:/dev/nvidia-uvm
     command: python bot.py
 
 secrets:
