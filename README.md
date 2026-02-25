@@ -27,7 +27,7 @@ TOKEN=1234567890:ABCDEF...
 docker compose up --build
 ```
 ```bash
-docker-compose up --build on older Docker
+docker-compose up --build #on older Docker
 ```
 
 Open your bot in Telegram, send a voice message, and it will answer you with a generated voice reply.
