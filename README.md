@@ -1,5 +1,5 @@
 AITalkingAgent is a Telegram bot for voice‑to‑voice chat using Whisper, Ollama and Piper TTS.
-Features
+# Features
 
     Send voice messages and get voice replies.
 
@@ -11,24 +11,26 @@ Features
 
     All services run in Docker, no local setup.
 
-Quick Start
+# Quick Start
 
-    Clone the repo:
+    1. Clone the repo:
 
-    bash
+    ```bash
     git clone https://github.com/Rowolfs/AITalkingAgent.git
     cd AITalkingAgent
+    ```
+    2. Create .env in the project root:
 
-    Create .env in the project root:
-
-    text
+    ```text
     TOKEN=1234567890:ABCDEF...
+    ```
+    3. Run:
 
-    Run:
-
-    bash
+    ```bash
     docker compose up --build
-
-    (or docker-compose up --build on older Docker)
+    ```
+    ```bash
+    docker-compose up --build on older Docker
+    ```
 
 Open your bot in Telegram, send a voice message, and it will answer you with a generated voice reply.
