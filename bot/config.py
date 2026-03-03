@@ -1,9 +1,19 @@
 import os
+import sys
 import yaml
+from logger import logger
 from dotenv import load_dotenv
 
-with open("../config.yaml","r",encoding="utf-8") as f:
-    config = yaml.safe_load(f)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CONFIG_PATH = os.path.join(BASE_DIR, "..", "config.yaml")
+
+config = ""
+try:
+    with open(CONFIG_PATH,"r",encoding="utf-8") as f:
+        config = yaml.safe_load(f)
+except FileNotFoundError:
+    logger.error("Config file not found")
+    sys.exit(1)
 
 
 try:
@@ -16,3 +26,4 @@ except FileNotFoundError:
     load_dotenv()
     token = os.getenv("TOKEN")
     print("Token loaded:", token[:4]+ "...")
+    

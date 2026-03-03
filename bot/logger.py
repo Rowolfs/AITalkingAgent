@@ -26,7 +26,7 @@ def setup_logger():
     logger.addHandler(console)
     
     # Файл с ротацией (ежедневно, 30 дней)
-    log_file = Path(f"logs/{datetime.now.strftime("%Y-%m-%d %H:%M:%S")}.log")
+    log_file = Path(f"logs/{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}.log")
     log_file.parent.mkdir(exist_ok=True)
     
     file_handler = TimedRotatingFileHandler(

@@ -1,6 +1,7 @@
 import whisper as whisper_runner
+from config import config
 
-model = whisper_runner.load_model("base")
+model = whisper_runner.load_model(config['whisper']['model'])
 
 
 def transcribe(path: str):

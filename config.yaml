@@ -1,8 +1,18 @@
 ollama:
   model: "mistral:7b"
-  system_prompt: ""
   timeout: 60
   stream: False
+  address: "http://127.0.0.1:11434/api/generate"
+  # system prompt you can change here 
+  system: |
+    Ты — быстрый голосовой ассистент.
+    Отвечай максимально кратко и по делу.
+    1–2 предложения.
+    Без лишнего контекста.
+    Без повторения вопроса.
+    Без объяснений если их не просили.
+
+    Ответ должен звучать естественно для озвучки.
 piper_tts:
   voice: "ru_RU-irina-medium"
   num_channels: 1
@@ -10,7 +20,6 @@ piper_tts:
   samplerate: 24000
 whisper:
   model: base
-  language: "all"
 
 
 

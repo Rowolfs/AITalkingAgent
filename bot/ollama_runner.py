@@ -1,22 +1,16 @@
 import requests
 import json
+from config import config
 
-system="""Ты — быстрый голосовой ассистент.
-    Отвечай максимально кратко и по делу.
-    1–2 предложения.
-    Без лишнего контекста.
-    Без повторения вопроса.
-    Без объяснений если их не просили.
 
-    Ответ должен звучать естественно для озвучки."""
 
 
 def ask_ollama(prompt: str):
     payload = {
-        "model": "mistral:7b",
+        "model": config['ollama']['model'],
         "prompt": prompt,
-        "system": system,
-        "stream": False,
+        "system": config['ollama']['system'],
+        "stream": config['ollama']['stream'],
         "options": {
             "num_predict": 60
         }
@@ -24,9 +18,9 @@ def ask_ollama(prompt: str):
 
     try:
         response = requests.post(
-            "http://127.0.0.1:11434/api/generate",
+            config['ollama']['address'],
             json=payload,
-            timeout=60,
+            timeout=config['ollama']['timeout'],
             
         )
         response.raise_for_status()
